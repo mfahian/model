@@ -1,0 +1,77 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2020_02_18_list_data
+      author: Martin Fahian
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  header: CODE
+                  name: CODE
+                  type: STRING
+              - column:
+                  header: DESCRIPTION
+                  name: DESCRIPTION
+                  type: STRING
+              - column:
+                  header: ABBREVIATION
+                  name: ABBREVIATION
+                  type: STRING
+            encoding: UTF-8
+            file: etim_units.csv
+            quotchar: '""'
+            relativeToChangelogFile: true
+            separator: ;
+            tableName: ETIM_UNIT
+        - loadData:
+            columns:
+              - column:
+                  header: CODE
+                  name: CODE
+                  type: STRING
+              - column:
+                  header: DESCRIPTION
+                  name: DESCRIPTION
+                  type: STRING
+            encoding: UTF-8
+            file: etim_values.csv
+            quotchar: '""'
+            relativeToChangelogFile: true
+            separator: ;
+            tableName: ETIM_VALUE
+        - loadData:
+            columns:
+              - column:
+                  header: CODE
+                  name: CODE
+                  type: STRING
+              - column:
+                  header: DESCRIPTION
+                  name: DESCRIPTION
+                  type: STRING
+            encoding: UTF-8
+            file: etim_groups.csv
+            quotchar: '""'
+            relativeToChangelogFile: true
+            separator: ;
+            tableName: ETIM_GROUP
+        - loadData:
+            columns:
+              - column:
+                  header: CODE
+                  name: CODE
+                  type: STRING
+              - column:
+                    header: TYPE
+                    name: TYPE
+                    type: STRING
+              - column:
+                  header: DESCRIPTION
+                  name: DESCRIPTION
+                  type: STRING
+            encoding: UTF-8
+            file: etim_features.csv
+            quotchar: '""'
+            relativeToChangelogFile: true
+            separator: ;
+            tableName: ETIM_FEATURE

@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2020_02_18
+      author: Martin Fahian
+      changes:
+        - addColumn:
+            tableName: ETIM_UNIT
+            columns:
+              name: DESCRIPTION
+              type: varchar(255)
+        - addColumn:
+            tableName: ETIM_FEATURE
+            columns:
+              name: TYPE
+              type: varchar(20)
+        - addColumn:
+            tableName: ETIM_CLASS
+            columns:
+              name: VERSION
+              type: varchar(5)
+        - addColumn:
+            tableName: ETIM_CLASS
+            columns:
+              name: STATUS
+              type: varchar(20)

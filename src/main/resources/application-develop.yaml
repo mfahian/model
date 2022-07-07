@@ -1,0 +1,5 @@
+server:
+  port: 8050
+logging:
+  level:
+    com.malpro.model: debug
