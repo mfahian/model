@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2020-02-20_2_etim_class_feature
+      author: Martin Fahian
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  header: ID
+                  name: ID
+                  type: NUMERIC
+              - column:
+                  header: CLASS_CODE
+                  name: CLASS_CODE
+                  type: STRING
+              - column:
+                  header: FEATURE_CODE
+                  name: FEATURE_CODE
+                  type: STRING
+              - column:
+                  header: UNIT_CODE
+                  name: UNIT_CODE
+                  type: STRING
+              - column:
+                  header: SORT_ORDER
+                  name: SORT_ORDER
+                  type: NUMERIC
+            encoding: UTF-8
+            file: etim_class_features.csv
+            quotchar: '""'
+            relativeToChangelogFile: true
+            separator: ;
+            tableName: ETIM_CLASS_FEATURE

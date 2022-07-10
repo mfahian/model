@@ -22,7 +22,7 @@ public class EtimClassFeatureValue {
 
     @Id
     @Column(name = "ID")
-    private String id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "CLASS_FEATURE_ID", referencedColumnName = "ID")

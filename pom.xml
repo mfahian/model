@@ -52,6 +52,10 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
@@ -97,58 +101,22 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>xjc</id>
-                        <goals>
-                            <goal>xjc</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <xjbSources>
-                        <xjbSource>src/main/resources/bindings.xjb</xjbSource>
-                    </xjbSources>
-                    <sources>
-                        <source>src/main/resources/bmecat_etim_501.xsd</source>
-                    </sources>
-                    <!--                    <packageName>https.www_etim_international_com.bmecat._50</packageName>-->
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.glassfish.jaxb</groupId>
-                        <artifactId>jaxb-xjc</artifactId>
-                        <version>2.3.2</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.sun.activation</groupId>
-                        <artifactId>jakarta.activation</artifactId>
-                        <version>1.2.1</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.version}</version>
-                <configuration>
-                    <excludes>
-                        <exclude>net/fahi/ecb/Application.java</exclude>
-                        <!--                        <exclude>net/fahi/ecb/catalog/multiple/dto/**/*</exclude>-->
-                        <!--                        <exclude>net/fahi/ecb/catalog/**/*dto.*</exclude>-->
-                        <!--                        <exclude>net/fahi/ecb/catalog/multiple/model/*.*</exclude>-->
-                    </excludes>
-                </configuration>
-
                 <executions>
                     <execution>
                         <id>jacoco-initialize</id>
                         <goals>
                             <goal>prepare-agent</goal>
                             <goal>prepare-agent-integration</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>

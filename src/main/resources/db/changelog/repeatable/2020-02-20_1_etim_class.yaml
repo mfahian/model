@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2020-02-20_1_etim_class
+      author: Martin Fahian
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  header: CODE
+                  name: CODE
+                  type: STRING
+              - column:
+                  header: VERSION
+                  name: VERSION
+                  type: STRING
+              - column:
+                  header: DESCRIPTION
+                  name: DESCRIPTION
+                  type: STRING
+              - column:
+                  header: STATUS
+                  name: STATUS
+                  type: STRING
+              - column:
+                  header: GROUP_CODE
+                  name: GROUP_CODE
+                  type: STRING
+            encoding: UTF-8
+            file: etim_class.csv
+            quotchar: '""'
+            relativeToChangelogFile: true
+            separator: ;
+            tableName: ETIM_CLASS

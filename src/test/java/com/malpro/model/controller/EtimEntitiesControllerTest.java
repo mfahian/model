@@ -30,10 +30,8 @@ import static org.mockito.Mockito.when;
  */
 @ExtendWith({MockitoExtension.class, RandomBeansExtension.class})
 class EtimEntitiesControllerTest {
-
     @Mock
     private IEtimService iEtimService;
-
     @InjectMocks
     EtimEntitiesController etimEntitiesController;
 
