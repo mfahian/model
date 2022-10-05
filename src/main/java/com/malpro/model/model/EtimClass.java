@@ -39,7 +39,7 @@ public class EtimClass {
     @JoinColumn(name = "GROUP_CODE", referencedColumnName = "CODE")
     private EtimGroup group;
 
-    @OneToMany(mappedBy = "classCode", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "etimClass", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EtimClassFeature> features;
 
 }

@@ -8,6 +8,6 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class ProductFeatureListDto extends ProductFeatureDto {
+public class ProductFeatureAlphanumericDto extends ProductFeatureDto {
     private String etimValueCode;
 }

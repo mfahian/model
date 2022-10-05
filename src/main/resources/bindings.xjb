@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<jxb:bindings xmlns:jxb="http://java.sun.com/xml/ns/jaxb" version="1.0"> <!--    xmlns:xsd="http://www.w3.org/2001/XMLSchema"-->
-    <jxb:bindings>
-        <jxb:globalBindings typesafeEnumMaxMembers="2000"/>
-    </jxb:bindings>
-</jxb:bindings>

@@ -25,12 +25,12 @@ public class EtimClassFeature {
 
     @Id
     @Column(name = "ID")
-    private String id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "CLASS_CODE", referencedColumnName = "CODE")
     @JsonIgnore
-    private EtimClass classCode;
+    private EtimClass etimClass;
 
     @OneToMany(mappedBy = "classFeatureCode", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EtimClassFeatureValue> values;

@@ -2,29 +2,3 @@ spring:
   liquibase:
     database-change-log-table: DATABASE_CHANGELOG
     database-change-log-lock-table: DATABASE_CHANGELOG_LOCK
-catalog:
-  mode: single
-  single-setting:
-    id: 1
-    version: 22.5
-    name: Malpro katalog
-    supplier:
-      name: Malpro spol. s r.o.
-      ediId: 8594049450008
-      address:
-        street: Lípa 318
-        zip: 763 11
-        city: Lípa
-        country: CZ
-      vatId: 45474150
-      email: malpro@malpro.cz
-      url: https://www.malpro.cz
-    buyer:
-      name: general customer
-    generationDate:
-      type: generation_date
-      year: 2021
-      month: 5
-      day: 23
-generator:
-  name: Catalog generator | ${catalog.company-name}

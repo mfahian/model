@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://172.18.0.1:5432/etim"  #docker container inspect nejake_cislo a tam hledat gateway
+    username: user
+    password: password
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    enabled: true
