@@ -72,7 +72,7 @@ public class ConvertorServiceTest {
         final var logicalEtimFeature = new EtimFeature();
 
         logicalEtimFeature.setCode(LOGICAL_FEATURE_CODE);
-        logicalEtimFeature.setType(EtimFeatureType.LOGICAL);
+        logicalEtimFeature.setType(EtimFeatureType.Logical);
         logicalEtimFeature.setDescription(LOGICAL_FEATURE);
 
         final var logicalEtimClassFeature = new EtimClassFeature();
@@ -82,7 +82,7 @@ public class ConvertorServiceTest {
         // Numeric etim feature definition
         final var numericEtimFeature = new EtimFeature();
         numericEtimFeature.setCode(NUMERIC_FEATURE_CODE);
-        numericEtimFeature.setType(EtimFeatureType.NUMERIC);
+        numericEtimFeature.setType(EtimFeatureType.Numeric);
         numericEtimFeature.setDescription(NUMERIC_FEATURE);
 
         final var numericEtimClassFeature = new EtimClassFeature();
@@ -93,7 +93,7 @@ public class ConvertorServiceTest {
         // Range etim feature definition
         final var rangeEtimFeature = new EtimFeature();
         rangeEtimFeature.setCode(RANGE_FEATURE_CODE);
-        rangeEtimFeature.setType(EtimFeatureType.RANGE);
+        rangeEtimFeature.setType(EtimFeatureType.Range);
         rangeEtimFeature.setDescription(RANGE_FEATURE);
 
         final var rangeEtimClassFeature = new EtimClassFeature();
@@ -104,7 +104,7 @@ public class ConvertorServiceTest {
         // Alphanumeric etim feature definition
         final var alphanumericEtimFeature = new EtimFeature();
         alphanumericEtimFeature.setCode(ALPHANUMERIC_FEATURE_CODE);
-        alphanumericEtimFeature.setType(EtimFeatureType.ALPHANUMERIC);
+        alphanumericEtimFeature.setType(EtimFeatureType.Alphanumeric);
         alphanumericEtimFeature.setDescription(ALPHANUMERIC_FEATURE);
 
         final var alphanumericEtimClassFeature = new EtimClassFeature();

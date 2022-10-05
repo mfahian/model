@@ -54,7 +54,7 @@ public class ConvertorService implements IConvertorService {
                                                           Set<ProductFeatureDto> inputFeatures) {
         final var productFeaturesTextDto = new ProductFeaturesTextDto();
         productFeaturesTextDto.setEtimClass(etimClassCode);
-        productFeaturesTextDto.setReferenceFeatureSystem(etimVersion);
+        productFeaturesTextDto.setReferenceFeatureSystem(etimVersion.toString());
 
         Map<String, EtimClassFeature> classFeaturesMap = new HashMap<>();
         classFeatures.forEach(cf -> classFeaturesMap.put(cf.getFeature().getCode(), cf));

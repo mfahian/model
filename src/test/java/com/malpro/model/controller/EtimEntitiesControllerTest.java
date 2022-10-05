@@ -4,7 +4,7 @@ import com.malpro.model.model.EtimClass;
 import com.malpro.model.model.EtimGroup;
 import com.malpro.model.service.IEtimService;
 import io.github.glytching.junit.extension.random.RandomBeansExtension;
-import liquibase.repackaged.org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -91,7 +91,6 @@ class EtimEntitiesControllerTest {
     @Test
     @DisplayName("Get class - not found test")
     void getClassNotFoundTest() {
-        var etimClass = mock(EtimClass.class);
         var groupCode = RandomStringUtils.randomAlphanumeric(10);
 
         MockHttpServletRequest request = new MockHttpServletRequest();

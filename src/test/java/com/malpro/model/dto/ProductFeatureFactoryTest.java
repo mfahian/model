@@ -22,7 +22,7 @@ class ProductFeatureFactoryTest {
     @DisplayName("Create alphanumeric factory test")
     void createAlphanumericFactoryTest() {
 
-        final IFeatureFactory factory = ProductFeatureFactory.getFactory(EtimFeatureType.ALPHANUMERIC);
+        final IFeatureFactory factory = ProductFeatureFactory.getFactory(EtimFeatureType.Alphanumeric);
 
         assertThat(factory.getClass(), Matchers.is(AlphanumericFeatureFactory.class));
     }
@@ -31,7 +31,7 @@ class ProductFeatureFactoryTest {
     @DisplayName("Create numeric factory test")
     void createNumericFactoryTest() {
 
-        final IFeatureFactory factory = ProductFeatureFactory.getFactory(EtimFeatureType.NUMERIC);
+        final IFeatureFactory factory = ProductFeatureFactory.getFactory(EtimFeatureType.Numeric);
 
         assertThat(factory.getClass(), Matchers.is(NumericFeatureFactory.class));
     }
@@ -40,7 +40,7 @@ class ProductFeatureFactoryTest {
     @DisplayName("Create logical factory test")
     void createLogicalFactoryTest() {
 
-        final IFeatureFactory factory = ProductFeatureFactory.getFactory(EtimFeatureType.LOGICAL);
+        final IFeatureFactory factory = ProductFeatureFactory.getFactory(EtimFeatureType.Logical);
 
         assertThat(factory.getClass(), Matchers.is(LogicalFeatureFactory.class));
     }
@@ -49,7 +49,7 @@ class ProductFeatureFactoryTest {
     @DisplayName("Create range factory test")
     void createRangeFactoryTest() {
 
-        final IFeatureFactory factory = ProductFeatureFactory.getFactory(EtimFeatureType.RANGE);
+        final IFeatureFactory factory = ProductFeatureFactory.getFactory(EtimFeatureType.Range);
 
         assertThat(factory.getClass(), Matchers.is(RangeFeatureFactory.class));
     }

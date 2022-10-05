@@ -4,7 +4,7 @@ import com.malpro.model.model.EtimClass;
 import com.malpro.model.model.EtimGroup;
 import com.malpro.model.repository.EtimClassRepository;
 import com.malpro.model.repository.EtimGroupRepository;
-import liquibase.repackaged.org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

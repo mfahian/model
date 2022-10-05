@@ -14,7 +14,7 @@ import lombok.Setter;
         use = JsonTypeInfo.Id.NAME,
         property = "type")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = ProductFeatureAlphanumericDto.class, name = "list"),
+        @JsonSubTypes.Type(value = ProductFeatureAlphanumericDto.class, name = "alphanumeric"),
         @JsonSubTypes.Type(value = ProductFeatureRangeDto.class, name = "range"),
         @JsonSubTypes.Type(value = ProductFeatureNumericDto.class, name = "numeric"),
         @JsonSubTypes.Type(value = ProductFeatureLogicalDto.class, name = "logical")

@@ -14,6 +14,6 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductFeaturesTextDto {
     private String etimClass;
-    private ReferenceFeatureSystem referenceFeatureSystem;
+    private String referenceFeatureSystem;
     private Map<String, String> featuresMap;
 }

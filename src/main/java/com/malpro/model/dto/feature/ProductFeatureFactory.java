@@ -12,10 +12,10 @@ public class ProductFeatureFactory {
 
     public static IFeatureFactory getFactory(EtimFeatureType type) {
         return switch (type) {
-            case ALPHANUMERIC -> new AlphanumericFeatureFactory();
-            case NUMERIC -> new NumericFeatureFactory();
-            case LOGICAL -> new LogicalFeatureFactory();
-            case RANGE -> new RangeFeatureFactory();
+            case Alphanumeric -> new AlphanumericFeatureFactory();
+            case Numeric -> new NumericFeatureFactory();
+            case Logical -> new LogicalFeatureFactory();
+            case Range -> new RangeFeatureFactory();
         };
     }
 }

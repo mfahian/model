@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: "jdbc:postgresql://172.18.0.1:5432/etim"  #docker container inspect nejake_cislo a tam hledat gateway
-    username: user
-    password: password
+    url: jdbc:postgresql://localhost:5432/model  #docker container inspect nejake_cislo a tam hledat gateway
+    username: admin
+    password: admin
     hikari:
       connectionTimeout: 20000
       maximumPoolSize: 5

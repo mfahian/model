@@ -8,7 +8,4 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApiConfiguration {
     public static final String API_URI_V1 = "/api/v1";
-
-    private ApiConfiguration() {
-    }
 }

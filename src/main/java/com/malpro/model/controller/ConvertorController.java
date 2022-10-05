@@ -4,6 +4,7 @@ import com.malpro.model.configuration.ApiConfiguration;
 import com.malpro.model.dto.ProductFeatureDto;
 import com.malpro.model.dto.ProductFeaturesTextDto;
 import com.malpro.model.dto.ProductFeaturesCodeDto;
+import com.malpro.model.dto.ReferenceFeatureSystem;
 import com.malpro.model.model.EtimClass;
 import com.malpro.model.service.IConvertorService;
 import com.malpro.model.service.IEtimService;
@@ -45,7 +46,7 @@ public class ConvertorController {
         Map<String, String> features = productFeaturesTextDto.getFeaturesMap() == null ? new HashMap<>() : productFeaturesTextDto.getFeaturesMap();
 
         final ProductFeaturesCodeDto productFeaturesCodeDto = iConvertorService.convertFeaturesFromText(etimClass.get().getCode(),
-                productFeaturesTextDto.getReferenceFeatureSystem(),
+                ReferenceFeatureSystem.valueOfLabel(productFeaturesTextDto.getReferenceFeatureSystem()),
                 etimClass.get().getFeatures(),
                 features);
 
