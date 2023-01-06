@@ -2,4 +2,6 @@ server:
   port: 8086
 logging:
   level:
-    com.malpro.model: debug
+    com:
+      malpro:
+        model: debug

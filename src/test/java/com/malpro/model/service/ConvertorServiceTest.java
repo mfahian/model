@@ -284,7 +284,7 @@ public class ConvertorServiceTest {
                 Set.of(productFeatureLogicalDto));
 
         assertThat(productFeaturesTextDto.getEtimClass(), Matchers.is(CLASS_CODE));
-        assertThat(productFeaturesTextDto.getReferenceFeatureSystem(), Matchers.is(ETIM_VERSION));
+        assertThat(productFeaturesTextDto.getReferenceFeatureSystem(), Matchers.is(ETIM_VERSION.toString()));
         assertThat(productFeaturesTextDto.getFeaturesMap().size(), Matchers.is(1));
         assertThat(productFeaturesTextDto.getFeaturesMap().containsKey(LOGICAL_FEATURE), Matchers.is(true));
         assertThat(productFeaturesTextDto.getFeaturesMap().get(LOGICAL_FEATURE), Matchers.is(Boolean.toString(featureValue)));

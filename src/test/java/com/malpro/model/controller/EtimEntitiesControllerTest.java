@@ -50,7 +50,7 @@ class EtimEntitiesControllerTest {
 
         verify(iEtimService).findEtimGroupByCode(groupCode);
 
-        assertThat(responseEntity.getStatusCodeValue(), Matchers.is(HttpStatus.OK.value()));
+        assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
     }
 
     @Test
@@ -67,7 +67,7 @@ class EtimEntitiesControllerTest {
 
         verify(iEtimService).findEtimGroupByCode(groupCode);
 
-        assertThat(responseEntity.getStatusCodeValue(), Matchers.is(HttpStatus.NOT_FOUND.value()));
+        assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.NOT_FOUND));
     }
 
     @Test
@@ -85,7 +85,7 @@ class EtimEntitiesControllerTest {
 
         verify(iEtimService).findEtimClassByCode(groupCode);
 
-        assertThat(responseEntity.getStatusCodeValue(), Matchers.is(HttpStatus.OK.value()));
+        assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
     }
 
     @Test
@@ -102,6 +102,6 @@ class EtimEntitiesControllerTest {
 
         verify(iEtimService).findEtimClassByCode(groupCode);
 
-        assertThat(responseEntity.getStatusCodeValue(), Matchers.is(HttpStatus.NOT_FOUND.value()));
+        assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.NOT_FOUND));
     }
 }

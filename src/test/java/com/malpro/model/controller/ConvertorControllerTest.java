@@ -64,7 +64,7 @@ class ConvertorControllerTest {
         verify(iEtimService).findEtimClassByCode(productFeaturesTextDto.getEtimClass());
         verify(iConvertorService, never()).convertFeaturesFromText(any(), any(), any(), any());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCodeValue(), Matchers.is(HttpStatus.NOT_FOUND.value()));
+        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.NOT_FOUND));
     }
 
     @Test
@@ -74,6 +74,7 @@ class ConvertorControllerTest {
         final var etimClass = mock(EtimClass.class);
         final List<EtimClassFeature> features = mock(List.class);
         final var productFeaturesDto = mock(ProductFeaturesCodeDto.class);
+        productFeaturesTextDto.setReferenceFeatureSystem("ETIM-8.0");
 
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
@@ -94,17 +95,19 @@ class ConvertorControllerTest {
                 etimClass.getFeatures(),
                 productFeaturesTextDto.getFeaturesMap());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCodeValue(), Matchers.is(HttpStatus.OK.value()));
+        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
     }
 
     @Test
     @DisplayName("Convert feature data to code - no input features test")
     @SuppressWarnings("unchecked")
     void convertFeatureDataToCodeNoInputFeaturesTest(@Random ProductFeaturesTextDto productFeaturesTextDto) {
+        productFeaturesTextDto.setFeaturesMap(null);
+        productFeaturesTextDto.setReferenceFeatureSystem("ETIM-8.0");
+
         final var etimClass = mock(EtimClass.class);
         final List<EtimClassFeature> features = mock(List.class);
         final var productFeaturesDto = mock(ProductFeaturesCodeDto.class);
-        productFeaturesTextDto.setFeaturesMap(null);
 
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
@@ -125,7 +128,7 @@ class ConvertorControllerTest {
                 eq(features),
                 anyMap());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCodeValue(), Matchers.is(HttpStatus.OK.value()));
+        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
     }
 
     @Test
@@ -143,7 +146,7 @@ class ConvertorControllerTest {
                 anyList(),
                 anySet());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCodeValue(), Matchers.is(HttpStatus.NOT_FOUND.value()));
+        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.NOT_FOUND));
     }
 
     @Test
@@ -165,7 +168,7 @@ class ConvertorControllerTest {
                 anyList(),
                 anySet());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCodeValue(), Matchers.is(HttpStatus.OK.value()));
+        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
     }
 
     @Test
@@ -189,6 +192,6 @@ class ConvertorControllerTest {
                 anyList(),
                 anySet());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCodeValue(), Matchers.is(HttpStatus.OK.value()));
+        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
     }
 }

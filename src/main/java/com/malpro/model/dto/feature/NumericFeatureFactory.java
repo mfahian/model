@@ -6,7 +6,6 @@ import com.malpro.model.dto.ProductFeatureNumericDto;
 import com.malpro.model.model.EtimClassFeature;
 import com.malpro.model.util.FeatureHelper;
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.Map;
 import java.util.Optional;
@@ -17,7 +16,6 @@ import java.util.Optional;
  */
 
 @AllArgsConstructor
-@Log4j2
 public class NumericFeatureFactory implements IFeatureFactory {
 
     @Override
