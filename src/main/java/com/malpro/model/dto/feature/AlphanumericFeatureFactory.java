@@ -1,6 +1,6 @@
 package com.malpro.model.dto.feature;
 
-import com.malpro.model.dto.KeyValue;
+import com.malpro.model.dto.KeyValueDto;
 import com.malpro.model.dto.ProductFeatureAlphanumericDto;
 import com.malpro.model.dto.ProductFeatureDto;
 import com.malpro.model.model.EtimClassFeature;
@@ -35,7 +35,7 @@ public class AlphanumericFeatureFactory implements IFeatureFactory {
     }
 
     @Override
-    public KeyValue createFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto) {
+    public KeyValueDto createFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto) {
         ProductFeatureAlphanumericDto productFeatureAlphanumericDto = (ProductFeatureAlphanumericDto) productFeatureDto;
         final Optional<EtimClassFeatureValue> etimValue = etimClassFeature.getValues().stream()
                 .filter(ev -> ev.getValue().getCode().equals(productFeatureAlphanumericDto.getEtimValueCode()))
@@ -45,6 +45,6 @@ public class AlphanumericFeatureFactory implements IFeatureFactory {
             value = etimValue.get().getValue().getDescription();
         }
 
-        return new KeyValue(etimClassFeature.getFeature().getDescription(), value);
+        return new KeyValueDto(etimClassFeature.getFeature().getDescription(), value);
     }
 }

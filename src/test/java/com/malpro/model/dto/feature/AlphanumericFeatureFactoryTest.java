@@ -1,11 +1,9 @@
-package com.malpro.model.dto;
+package com.malpro.model.dto.feature;
 
-import com.malpro.model.dto.feature.AlphanumericFeatureFactory;
-import com.malpro.model.model.EtimClassFeature;
-import com.malpro.model.model.EtimClassFeatureValue;
-import com.malpro.model.model.EtimValue;
-import io.github.glytching.junit.extension.random.Random;
-import io.github.glytching.junit.extension.random.RandomBeansExtension;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import java.util.List;
+
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,9 +11,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.List;
+import com.malpro.model.dto.KeyValueDto;
+import com.malpro.model.dto.ProductFeatureAlphanumericDto;
+import com.malpro.model.model.EtimClassFeature;
+import com.malpro.model.model.EtimClassFeatureValue;
+import com.malpro.model.model.EtimValue;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import io.github.glytching.junit.extension.random.Random;
+import io.github.glytching.junit.extension.random.RandomBeansExtension;
 
 /**
  * Created by fahian on 26.06.22.
@@ -51,7 +54,7 @@ class AlphanumericFeatureFactoryTest {
 
         productFeatureAlphanumericDto.setEtimValueCode(etimValue.getCode());
 
-        final KeyValue feature = alphanumericFeatureFactory.createFeatureText(etimClassFeature, productFeatureAlphanumericDto);
+        final KeyValueDto feature = alphanumericFeatureFactory.createFeatureText(etimClassFeature, productFeatureAlphanumericDto);
 
         assertThat(feature.key(), Matchers.is(etimClassFeature.getFeature().getDescription()));
         assertThat(feature.value(), Matchers.is(etimValue.getDescription()));
@@ -67,7 +70,7 @@ class AlphanumericFeatureFactoryTest {
         etimClassFeatureValue.setClassFeatureCode(etimClassFeature);
         etimClassFeature.setValues(List.of(etimClassFeatureValue));
 
-        final KeyValue feature = alphanumericFeatureFactory.createFeatureText(etimClassFeature, productFeatureAlphanumericDto);
+        final KeyValueDto feature = alphanumericFeatureFactory.createFeatureText(etimClassFeature, productFeatureAlphanumericDto);
 
         assertThat(feature.key(), Matchers.is(etimClassFeature.getFeature().getDescription()));
         assertThat(feature.value(), Matchers.is(""));

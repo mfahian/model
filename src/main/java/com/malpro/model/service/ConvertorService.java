@@ -1,6 +1,6 @@
 package com.malpro.model.service;
 
-import com.malpro.model.dto.KeyValue;
+import com.malpro.model.dto.KeyValueDto;
 import com.malpro.model.dto.ProductFeatureDto;
 import com.malpro.model.dto.ProductFeaturesCodeDto;
 import com.malpro.model.dto.ProductFeaturesTextDto;
@@ -62,14 +62,14 @@ public class ConvertorService implements IConvertorService {
         Map<String, String> productFeatureMap = inputFeatures.stream()
                 .filter(icf -> classFeaturesMap.containsKey(icf.getEtimFeatureCode()))
                 .map(icf -> prepareFeatureText(classFeaturesMap.get(icf.getEtimFeatureCode()),icf))
-                .collect(Collectors.toMap(KeyValue::key,KeyValue::value));
+                .collect(Collectors.toMap(KeyValueDto::key,KeyValueDto::value));
 
         productFeaturesTextDto.setFeaturesMap(productFeatureMap);
 
         return productFeaturesTextDto;
     }
 
-    private KeyValue prepareFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto) {
+    private KeyValueDto prepareFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto) {
         return ProductFeatureFactory.getFactory(etimClassFeature.getFeature().getType())
                 .createFeatureText(etimClassFeature,productFeatureDto);
     }

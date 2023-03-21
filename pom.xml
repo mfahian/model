@@ -29,6 +29,7 @@
         <commons-configuration2.version>2.8.0</commons-configuration2.version>
         <springdoc-openapi-starter-webmvc-ui.version>2.0.0</springdoc-openapi-starter-webmvc-ui.version>
         <hsqldb.version>2.7.1</hsqldb.version>
+        <sonar.login>sqa_54cef5c28573818d0bf0d55974f54377d215bc83</sonar.login>
     </properties>
 
     <dependencies>
@@ -118,9 +119,9 @@
                 <configuration>
                     <excludes>
                         <exclude>com/malpro/model/configuration/*</exclude>
-                        <exclude>com/malpro/model/dto/**/*</exclude>
+                        <exclude>com/malpro/model/dto/**/*Dto.*</exclude>
                         <exclude>com/malpro/model/repository/*</exclude>
-                        <exclude>com/malpro/**/Application.class</exclude>
+                        <exclude>com/malpro/model/Application.*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
@@ -139,6 +140,11 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.0.2155</version>
             </plugin>
         </plugins>
     </build>

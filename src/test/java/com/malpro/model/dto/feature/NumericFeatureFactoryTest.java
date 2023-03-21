@@ -1,10 +1,10 @@
-package com.malpro.model.dto;
+package com.malpro.model.dto.feature;
 
-import com.malpro.model.dto.feature.NumericFeatureFactory;
-import com.malpro.model.model.EtimClassFeature;
-import com.malpro.model.util.FeatureHelper;
-import io.github.glytching.junit.extension.random.Random;
-import io.github.glytching.junit.extension.random.RandomBeansExtension;
+import static com.malpro.model.util.FeatureHelper.VALUE;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import java.util.Map;
+
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
@@ -13,10 +13,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Map;
+import com.malpro.model.dto.KeyValueDto;
+import com.malpro.model.dto.ProductFeatureNumericDto;
+import com.malpro.model.model.EtimClassFeature;
+import com.malpro.model.util.FeatureHelper;
 
-import static com.malpro.model.util.FeatureHelper.VALUE;
-import static org.hamcrest.MatcherAssert.assertThat;
+import io.github.glytching.junit.extension.random.Random;
+import io.github.glytching.junit.extension.random.RandomBeansExtension;
 
 /**
  * Created by fahian on 26.06.22.
@@ -58,7 +61,7 @@ class NumericFeatureFactoryTest {
     void convertNumericFeatureToTextTest(@Random EtimClassFeature etimClassFeature,
                                          @Random ProductFeatureNumericDto productFeatureNumericDto) {
 
-        final KeyValue feature = numericFeatureFactory.createFeatureText(etimClassFeature, productFeatureNumericDto);
+        final KeyValueDto feature = numericFeatureFactory.createFeatureText(etimClassFeature, productFeatureNumericDto);
 
         assertThat(feature.key(), Matchers.is(etimClassFeature.getFeature().getDescription()));
         assertThat(feature.value(), Matchers.is(productFeatureNumericDto.getNumericValue() + " " + etimClassFeature.getUnitOfMeasure().getAbbreviation()));

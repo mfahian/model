@@ -1,6 +1,6 @@
 package com.malpro.model.dto.feature;
 
-import com.malpro.model.dto.KeyValue;
+import com.malpro.model.dto.KeyValueDto;
 import com.malpro.model.dto.ProductFeatureDto;
 import com.malpro.model.dto.ProductFeatureRangeDto;
 import com.malpro.model.model.EtimClassFeature;
@@ -38,10 +38,10 @@ public class RangeFeatureFactory implements IFeatureFactory {
     }
 
     @Override
-    public KeyValue createFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto) {
+    public KeyValueDto createFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto) {
         ProductFeatureRangeDto productFeatureRangeDto = (ProductFeatureRangeDto) productFeatureDto;
 
-        return new KeyValue(etimClassFeature.getFeature().getDescription(),
+        return new KeyValueDto(etimClassFeature.getFeature().getDescription(),
                 productFeatureRangeDto.getLowerBound() + " - " + productFeatureRangeDto.getUpperBound() + " " + etimClassFeature.getUnitOfMeasure().getAbbreviation());
 
     }

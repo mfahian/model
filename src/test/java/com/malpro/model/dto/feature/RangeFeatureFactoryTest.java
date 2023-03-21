@@ -1,11 +1,7 @@
-package com.malpro.model.dto;
+package com.malpro.model.dto.feature;
 
-import com.malpro.model.dto.feature.RangeFeatureFactory;
-import com.malpro.model.model.EtimClassFeature;
-import com.malpro.model.model.EtimFeature;
-import com.malpro.model.model.EtimUnit;
-import io.github.glytching.junit.extension.random.Random;
-import io.github.glytching.junit.extension.random.RandomBeansExtension;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
@@ -17,7 +13,14 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import com.malpro.model.dto.KeyValueDto;
+import com.malpro.model.dto.ProductFeatureRangeDto;
+import com.malpro.model.model.EtimClassFeature;
+import com.malpro.model.model.EtimFeature;
+import com.malpro.model.model.EtimUnit;
+
+import io.github.glytching.junit.extension.random.Random;
+import io.github.glytching.junit.extension.random.RandomBeansExtension;
 
 /**
  * Created by fahian on 27.06.22.
@@ -100,7 +103,7 @@ class RangeFeatureFactoryTest {
     void convertRangeFeatureToTextTest(@Random EtimClassFeature etimClassFeature,
                                        @Random ProductFeatureRangeDto productFeatureRangeDto) {
 
-        final KeyValue feature = rangeFeatureFactory.createFeatureText(etimClassFeature, productFeatureRangeDto);
+        final KeyValueDto feature = rangeFeatureFactory.createFeatureText(etimClassFeature, productFeatureRangeDto);
 
         assertThat(feature.key(), Matchers.is(etimClassFeature.getFeature().getDescription()));
         assertThat(feature.value(), Matchers.is(productFeatureRangeDto.getLowerBound() + " - " + productFeatureRangeDto.getUpperBound() + " " + etimClassFeature.getUnitOfMeasure().getAbbreviation()));

@@ -1,10 +1,7 @@
-package com.malpro.model.dto;
+package com.malpro.model.dto.feature;
 
-import com.malpro.model.dto.feature.LogicalFeatureFactory;
-import com.malpro.model.model.EtimClassFeature;
-import com.malpro.model.model.EtimFeature;
-import io.github.glytching.junit.extension.random.Random;
-import io.github.glytching.junit.extension.random.RandomBeansExtension;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +11,13 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import com.malpro.model.dto.KeyValueDto;
+import com.malpro.model.dto.ProductFeatureLogicalDto;
+import com.malpro.model.model.EtimClassFeature;
+import com.malpro.model.model.EtimFeature;
+
+import io.github.glytching.junit.extension.random.Random;
+import io.github.glytching.junit.extension.random.RandomBeansExtension;
 
 /**
  * Created by fahian on 26.06.22.
@@ -57,7 +60,7 @@ class LogicalFeatureFactoryTest {
     void convertLogicalFeatureToTextTest(@Random EtimClassFeature etimClassFeature,
                                          @Random ProductFeatureLogicalDto productFeatureLogicalDto) {
 
-        final KeyValue feature = logicalFeatureFactory.createFeatureText(etimClassFeature, productFeatureLogicalDto);
+        final KeyValueDto feature = logicalFeatureFactory.createFeatureText(etimClassFeature, productFeatureLogicalDto);
 
         assertThat(feature.key(), Matchers.is(etimClassFeature.getFeature().getDescription()));
         assertThat(feature.value(), Matchers.is(productFeatureLogicalDto.getBooleanValue().toString()));
@@ -69,7 +72,7 @@ class LogicalFeatureFactoryTest {
                                                     @Random ProductFeatureLogicalDto productFeatureLogicalDto) {
         productFeatureLogicalDto.setBooleanValue(null);
 
-        final KeyValue feature = logicalFeatureFactory.createFeatureText(etimClassFeature, productFeatureLogicalDto);
+        final KeyValueDto feature = logicalFeatureFactory.createFeatureText(etimClassFeature, productFeatureLogicalDto);
 
         assertThat(feature.key(), Matchers.is(etimClassFeature.getFeature().getDescription()));
         assertThat(feature.value(), Matchers.is(""));

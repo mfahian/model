@@ -1,6 +1,6 @@
 package com.malpro.model.dto.feature;
 
-import com.malpro.model.dto.KeyValue;
+import com.malpro.model.dto.KeyValueDto;
 import com.malpro.model.dto.ProductFeatureDto;
 import com.malpro.model.dto.ProductFeatureNumericDto;
 import com.malpro.model.model.EtimClassFeature;
@@ -40,9 +40,9 @@ public class NumericFeatureFactory implements IFeatureFactory {
     }
 
     @Override
-    public KeyValue createFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto) {
+    public KeyValueDto createFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto) {
         ProductFeatureNumericDto productFeatureNumericDto = (ProductFeatureNumericDto) productFeatureDto;
 
-        return new KeyValue(etimClassFeature.getFeature().getDescription(), productFeatureNumericDto.getNumericValue() + " " + etimClassFeature.getUnitOfMeasure().getAbbreviation());
+        return new KeyValueDto(etimClassFeature.getFeature().getDescription(), productFeatureNumericDto.getNumericValue() + " " + etimClassFeature.getUnitOfMeasure().getAbbreviation());
     }
 }

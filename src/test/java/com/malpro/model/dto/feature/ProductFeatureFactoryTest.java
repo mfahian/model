@@ -1,17 +1,12 @@
-package com.malpro.model.dto;
+package com.malpro.model.dto.feature;
 
-import com.malpro.model.dto.feature.AlphanumericFeatureFactory;
-import com.malpro.model.dto.feature.IFeatureFactory;
-import com.malpro.model.dto.feature.LogicalFeatureFactory;
-import com.malpro.model.dto.feature.NumericFeatureFactory;
-import com.malpro.model.dto.feature.ProductFeatureFactory;
-import com.malpro.model.dto.feature.RangeFeatureFactory;
-import com.malpro.model.model.EtimFeatureType;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import com.malpro.model.model.EtimFeatureType;
 
 /**
  * Created by fahian on 26.06.22.

@@ -1,7 +1,7 @@
 package com.malpro.model.dto.feature;
 
 
-import com.malpro.model.dto.KeyValue;
+import com.malpro.model.dto.KeyValueDto;
 import com.malpro.model.dto.ProductFeatureDto;
 import com.malpro.model.model.EtimClassFeature;
 
@@ -12,5 +12,5 @@ public interface IFeatureFactory {
 
     ProductFeatureDto createFeatureCode(EtimClassFeature etimClassFeature, String inputValue);
 
-    KeyValue createFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto);
+    KeyValueDto createFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto);
 }

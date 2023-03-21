@@ -1,6 +1,6 @@
 package com.malpro.model.dto.feature;
 
-import com.malpro.model.dto.KeyValue;
+import com.malpro.model.dto.KeyValueDto;
 import com.malpro.model.dto.ProductFeatureDto;
 import com.malpro.model.dto.ProductFeatureLogicalDto;
 import com.malpro.model.model.EtimClassFeature;
@@ -28,7 +28,7 @@ public class LogicalFeatureFactory implements IFeatureFactory {
     }
 
     @Override
-    public KeyValue createFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto) {
+    public KeyValueDto createFeatureText(EtimClassFeature etimClassFeature, ProductFeatureDto productFeatureDto) {
         ProductFeatureLogicalDto productFeatureLogicalDto = (ProductFeatureLogicalDto) productFeatureDto;
 
         String value = "";
@@ -36,6 +36,6 @@ public class LogicalFeatureFactory implements IFeatureFactory {
             value = productFeatureLogicalDto.getBooleanValue().toString();
         }
 
-        return new KeyValue(etimClassFeature.getFeature().getDescription(), value);
+        return new KeyValueDto(etimClassFeature.getFeature().getDescription(), value);
     }
 }
