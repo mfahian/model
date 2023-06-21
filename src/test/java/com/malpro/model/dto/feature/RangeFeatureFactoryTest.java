@@ -1,10 +1,10 @@
 package com.malpro.model.dto.feature;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -93,7 +93,7 @@ class RangeFeatureFactoryTest {
     void createRangeFeatureWithErrorTest(String inputValue, String errorMessage) {
         final EtimClassFeature etimClassFeature = new EtimClassFeature();
 
-        RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> rangeFeatureFactory.createFeatureCode(etimClassFeature, inputValue));
+        RuntimeException thrown = assertThrows(RuntimeException.class, () -> rangeFeatureFactory.createFeatureCode(etimClassFeature, inputValue));
 
         assertThat(thrown.getMessage(), Matchers.is(errorMessage));
     }

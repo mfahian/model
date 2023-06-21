@@ -32,7 +32,7 @@ public class EtimEntitiesController {
     @GetMapping(value = "/group/{code}",  produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public ResponseEntity<EtimGroup> getGroup(@PathVariable("code") String code) {
+    public ResponseEntity<EtimGroup> getGroup(@PathVariable String code) {
         Optional<EtimGroup> etimGroup = etimService.findEtimGroupByCode(code);
         if (etimGroup.isEmpty()) {
             return ResponseEntity.notFound().build();
@@ -44,7 +44,7 @@ public class EtimEntitiesController {
     @GetMapping(value = "/class/{code}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public ResponseEntity<EtimClass> getClassGroup(@PathVariable("code") String code) {
+    public ResponseEntity<EtimClass> getClassGroup(@PathVariable String code) {
         Optional<EtimClass> etimClass = etimService.findEtimClassByCode(code);
         if (etimClass.isEmpty()) {
             return ResponseEntity.notFound().build();

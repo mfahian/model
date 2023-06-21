@@ -34,7 +34,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Created by fahian on 07.07.22.
  */
 @ExtendWith({MockitoExtension.class, RandomBeansExtension.class})
-public class ConvertorServiceTest {
+class ConvertorServiceTest {
 
     private static final String CLASS_CODE = "EC000000";
     private static final String UNIT_CODE = "EU000000";
@@ -56,7 +56,7 @@ public class ConvertorServiceTest {
     private ConvertorService convertorService;
 
     @BeforeAll
-    public static void initTest() {
+    static void initTest() {
         // Etim unit definition
         final var etimUnit = new EtimUnit();
         etimUnit.setCode(UNIT_CODE);

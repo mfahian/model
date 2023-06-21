@@ -9,7 +9,6 @@ import com.malpro.model.service.IConvertorService;
 import com.malpro.model.service.IEtimService;
 import io.github.glytching.junit.extension.random.Random;
 import io.github.glytching.junit.extension.random.RandomBeansExtension;
-import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,6 +26,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.ArgumentMatchers.anyMap;
@@ -64,7 +64,7 @@ class ConvertorControllerTest {
         verify(iEtimService).findEtimClassByCode(productFeaturesTextDto.getEtimClass());
         verify(iConvertorService, never()).convertFeaturesFromText(any(), any(), any(), any());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.NOT_FOUND));
+        assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.NOT_FOUND));
     }
 
     @Test
@@ -95,7 +95,7 @@ class ConvertorControllerTest {
                 etimClass.getFeatures(),
                 productFeaturesTextDto.getFeaturesMap());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
+        assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
     }
 
     @Test
@@ -128,7 +128,7 @@ class ConvertorControllerTest {
                 eq(features),
                 anyMap());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
+        assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
     }
 
     @Test
@@ -146,7 +146,7 @@ class ConvertorControllerTest {
                 anyList(),
                 anySet());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.NOT_FOUND));
+        assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.NOT_FOUND));
     }
 
     @Test
@@ -168,7 +168,7 @@ class ConvertorControllerTest {
                 anyList(),
                 anySet());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
+        assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
     }
 
     @Test
@@ -192,6 +192,6 @@ class ConvertorControllerTest {
                 anyList(),
                 anySet());
 
-        MatcherAssert.assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
+        assertThat(responseEntity.getStatusCode(), Matchers.is(HttpStatus.OK));
     }
 }
