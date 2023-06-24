@@ -2,6 +2,8 @@ package com.malpro.model.util;
 
 import org.springframework.util.StringUtils;
 
+import com.malpro.model.exception.SplitNotFoundException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,7 +67,7 @@ public class FeatureHelper {
             case 3:
                 return value.indexOf(RANGE_CHARACTER, 1);
             default:
-                throw new RuntimeException("No or more then three range characters found");
+                throw new SplitNotFoundException("No or more then three range characters found");
         }
     }
 
