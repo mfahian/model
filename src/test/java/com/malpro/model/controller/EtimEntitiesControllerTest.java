@@ -3,7 +3,7 @@ package com.malpro.model.controller;
 import com.malpro.model.model.EtimClass;
 import com.malpro.model.model.EtimGroup;
 import com.malpro.model.service.IEtimService;
-import io.github.glytching.junit.extension.random.RandomBeansExtension;
+import com.malpro.model.random.RandomBeansExtension;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;

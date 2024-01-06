@@ -19,8 +19,8 @@ import com.malpro.model.model.EtimClassFeature;
 import com.malpro.model.model.EtimFeature;
 import com.malpro.model.model.EtimUnit;
 
-import io.github.glytching.junit.extension.random.Random;
-import io.github.glytching.junit.extension.random.RandomBeansExtension;
+import com.malpro.model.random.Random;
+import com.malpro.model.random.RandomBeansExtension;
 
 /**
  * Created by fahian on 27.06.22.

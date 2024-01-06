@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface EtimValueRepository extends JpaRepository<EtimValue, Long> {
+public interface EtimValueRepository extends JpaRepository<EtimValue, String> {
 
     Optional<EtimValue> findByCode(String code);
 

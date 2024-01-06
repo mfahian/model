@@ -12,7 +12,7 @@ import com.malpro.model.model.EtimFeature;
 import com.malpro.model.model.EtimFeatureType;
 import com.malpro.model.model.EtimUnit;
 import com.malpro.model.model.EtimValue;
-import io.github.glytching.junit.extension.random.RandomBeansExtension;
+import com.malpro.model.random.RandomBeansExtension;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;

@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface EtimUnitRepository extends JpaRepository<EtimUnit, Long> {
+public interface EtimUnitRepository extends JpaRepository<EtimUnit, String> {
 
     Optional<EtimUnit> findByCode(String code);
 
