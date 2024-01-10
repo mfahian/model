@@ -1,11 +1,11 @@
 package com.malpro.model.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -24,9 +24,9 @@ public class EtimClassFeatureValue {
     @Column(name = "ID")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CLASS_FEATURE_ID", referencedColumnName = "ID")
-    @JsonIgnore
+    // @JsonIgnore
     private EtimClassFeature classFeatureCode;
 
     @ManyToOne

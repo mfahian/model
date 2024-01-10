@@ -6,6 +6,7 @@ import com.malpro.model.dto.ProductFeatureRangeDto;
 import com.malpro.model.model.EtimClassFeature;
 import com.malpro.model.util.FeatureHelper;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
 import java.util.Optional;
@@ -15,10 +16,12 @@ import java.util.Optional;
  */
 
 @AllArgsConstructor
+@Slf4j
 public class RangeFeatureFactory implements IFeatureFactory {
 
     @Override
     public ProductFeatureRangeDto createFeatureCode(EtimClassFeature etimClassFeature, String inputValue) {
+        log.debug("Range value: {}", inputValue);
         Map<String,String> splitValues = FeatureHelper.splitRangeValues(inputValue);
 
         final var productFeatureRangeDto = new ProductFeatureRangeDto();

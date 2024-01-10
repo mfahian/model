@@ -6,6 +6,7 @@ import com.malpro.model.dto.ProductFeatureDto;
 import com.malpro.model.model.EtimClassFeature;
 import com.malpro.model.model.EtimClassFeatureValue;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
@@ -13,16 +14,17 @@ import java.util.Optional;
  * Created by martin.fahian on 22.02.21.
  */
 @AllArgsConstructor
+@Slf4j
 public class AlphanumericFeatureFactory implements IFeatureFactory {
 
     @Override
     public ProductFeatureAlphanumericDto createFeatureCode(EtimClassFeature etimClassFeature, String inputValue) {
-
+        log.debug("Alphanumeric value: {}", inputValue);
         final var productFeatureListDto = new ProductFeatureAlphanumericDto();
 
         // setting feature
         productFeatureListDto.setEtimFeatureCode(etimClassFeature.getFeature().getCode());
-
+        log.debug("Alphanumeric feature: {}", productFeatureListDto.getEtimFeatureCode());
         // setting value
         // Todo NPE for VALUE not checked
         etimClassFeature.getValues().stream()

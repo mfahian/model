@@ -24,7 +24,7 @@
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <jacoco.version>0.8.11</jacoco.version>
         <junit-extensions.version>2.6.0</junit-extensions.version>
-        <springdoc-openapi-starter-webmvc-ui.version>2.1.0</springdoc-openapi-starter-webmvc-ui.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.3.0</springdoc-openapi-starter-webmvc-ui.version>
         <hsqldb.version>2.7.2</hsqldb.version>
         <easy-random-core.version>5.0.0</easy-random-core.version>
     </properties>

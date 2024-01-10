@@ -5,17 +5,20 @@ import com.malpro.model.dto.ProductFeatureDto;
 import com.malpro.model.dto.ProductFeatureLogicalDto;
 import com.malpro.model.model.EtimClassFeature;
 import com.malpro.model.util.FeatureHelper;
+
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by martin.fahian on 22.02.21.
  */
 @AllArgsConstructor
+@Slf4j
 public class LogicalFeatureFactory implements IFeatureFactory {
 
     @Override
     public ProductFeatureLogicalDto createFeatureCode(EtimClassFeature etimClassFeature, String inputValue) {
-
+        log.debug("Logical value: {}", inputValue);
         final var productFeatureLogicalDto = new ProductFeatureLogicalDto();
 
         // setting feature

@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class FeatureHelper {
 
-    public static final String RANGE_CHARACTER = "-";
+    public static final String RANGE_CHARACTER_1 = "-";
     public static final String VALUE = "value";
     public static final String UPPER_BOUND = "upperBound";
     public static final String LOWER_BOUND = "lowerBound";
@@ -56,19 +56,24 @@ public class FeatureHelper {
 
     private static int findSplitPosition(String value) {
 
-        int rangeCharacterCount = StringUtils.countOccurrencesOf(value, RANGE_CHARACTER);
+        String normalizedValue = normalizeRangeChar(value);
+        int rangeCharacterCount = StringUtils.countOccurrencesOf(normalizedValue, RANGE_CHARACTER_1);
 
         switch (rangeCharacterCount) {
             case 1:
-                return value.indexOf(RANGE_CHARACTER);
+                return normalizedValue.indexOf(RANGE_CHARACTER_1);
             case 2:
-                int firstOccurance = value.indexOf(RANGE_CHARACTER);
-                return (firstOccurance == 0) ? value.indexOf(RANGE_CHARACTER, firstOccurance + 1) : firstOccurance;
+                int firstOccurance = normalizedValue.indexOf(RANGE_CHARACTER_1);
+                return (firstOccurance == 0) ? normalizedValue.indexOf(RANGE_CHARACTER_1, firstOccurance + 1) : firstOccurance;
             case 3:
-                return value.indexOf(RANGE_CHARACTER, 1);
+                return normalizedValue.indexOf(RANGE_CHARACTER_1, 1);
             default:
                 throw new SplitNotFoundException("No or more then three range characters found");
         }
+    }
+
+    private static String normalizeRangeChar(String value) {
+        return value.replace("–", RANGE_CHARACTER_1);
     }
 
 }

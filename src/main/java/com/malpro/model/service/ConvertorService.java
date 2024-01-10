@@ -1,5 +1,14 @@
 package com.malpro.model.service;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
 import com.malpro.model.dto.KeyValueDto;
 import com.malpro.model.dto.ProductFeatureDto;
 import com.malpro.model.dto.ProductFeaturesCodeDto;
@@ -7,14 +16,6 @@ import com.malpro.model.dto.ProductFeaturesTextDto;
 import com.malpro.model.dto.ReferenceFeatureSystem;
 import com.malpro.model.dto.feature.ProductFeatureFactory;
 import com.malpro.model.model.EtimClassFeature;
-import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * Created by fahian on 07.07.22.
