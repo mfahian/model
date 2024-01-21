@@ -1,9 +1,9 @@
 package com.malpro.model.controller;
 
-import com.malpro.model.model.EtimClass;
-import com.malpro.model.model.EtimGroup;
-import com.malpro.model.service.IEtimService;
-import org.springframework.beans.factory.annotation.Autowired;
+import static com.malpro.model.configuration.ApiConfiguration.API_URI_V1;
+
+import java.util.Optional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,20 +14,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
+import com.malpro.model.model.EtimClass;
+import com.malpro.model.model.EtimGroup;
+import com.malpro.model.service.IEtimService;
 
-import static com.malpro.model.configuration.ApiConfiguration.API_URI_V1;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Created by martin.fahian on 04.02.21.
  */
 @RestController
 @RequestMapping(API_URI_V1 + EtimEntitiesController.URL)
+@RequiredArgsConstructor
 public class EtimEntitiesController {
     public static final String URL = "/etim";
 
-    @Autowired
-    private IEtimService etimService;
+    private final IEtimService etimService;
 
     @GetMapping(value = "/group/{code}",  produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)

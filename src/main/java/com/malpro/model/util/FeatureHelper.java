@@ -33,9 +33,8 @@ public class FeatureHelper {
         Map<String, String> splitValues = new HashMap<>();
 
         if (value.lastIndexOf(" ") > 0) {
-            String[] split = value.split(" ");  //Todo Problem when range value has more than one space
-            splitValues.put(VALUE, split[0]);
-            splitValues.put(UNIT, split[1]);
+            splitValues.put(VALUE, value.substring(0,value.lastIndexOf(" ")));
+            splitValues.put(UNIT, value.substring(value.lastIndexOf(" ")+1, value.length()));
         } else {
             splitValues.put(VALUE, value);
         }
@@ -46,7 +45,7 @@ public class FeatureHelper {
     public static Map<String, String> splitRangeValues(String inputValue) {
         Map<String, String> splitValues = splitSimpleValues(inputValue);
 
-        String actualValue = splitValues.get(VALUE);
+        String actualValue = normalizeRangeChar(splitValues.get(VALUE));
         int rangeCharacterPosition = findSplitPosition(actualValue);
         splitValues.put(LOWER_BOUND, actualValue.substring(0,rangeCharacterPosition));
         splitValues.put(UPPER_BOUND, actualValue.substring(rangeCharacterPosition+1));
@@ -55,25 +54,23 @@ public class FeatureHelper {
     }
 
     private static int findSplitPosition(String value) {
-
-        String normalizedValue = normalizeRangeChar(value);
-        int rangeCharacterCount = StringUtils.countOccurrencesOf(normalizedValue, RANGE_CHARACTER_1);
+        int rangeCharacterCount = StringUtils.countOccurrencesOf(value, RANGE_CHARACTER_1);
 
         switch (rangeCharacterCount) {
             case 1:
-                return normalizedValue.indexOf(RANGE_CHARACTER_1);
+                return value.indexOf(RANGE_CHARACTER_1);
             case 2:
-                int firstOccurance = normalizedValue.indexOf(RANGE_CHARACTER_1);
-                return (firstOccurance == 0) ? normalizedValue.indexOf(RANGE_CHARACTER_1, firstOccurance + 1) : firstOccurance;
+                int firstOccurance = value.indexOf(RANGE_CHARACTER_1);
+                return (firstOccurance == 0) ? value.indexOf(RANGE_CHARACTER_1, firstOccurance + 1) : firstOccurance;
             case 3:
-                return normalizedValue.indexOf(RANGE_CHARACTER_1, 1);
+                return value.indexOf(RANGE_CHARACTER_1, 1);
             default:
                 throw new SplitNotFoundException("No or more then three range characters found");
         }
     }
 
     private static String normalizeRangeChar(String value) {
-        return value.replace("–", RANGE_CHARACTER_1);
+        return value.replace("–", RANGE_CHARACTER_1).replace(" ", "");
     }
 
 }

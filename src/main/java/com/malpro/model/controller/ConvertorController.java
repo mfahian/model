@@ -1,14 +1,11 @@
 package com.malpro.model.controller;
 
-import com.malpro.model.configuration.ApiConfiguration;
-import com.malpro.model.dto.ProductFeatureDto;
-import com.malpro.model.dto.ProductFeaturesTextDto;
-import com.malpro.model.dto.ProductFeaturesCodeDto;
-import com.malpro.model.dto.ReferenceFeatureSystem;
-import com.malpro.model.model.EtimClass;
-import com.malpro.model.service.IConvertorService;
-import com.malpro.model.service.IEtimService;
-import lombok.RequiredArgsConstructor;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,11 +15,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import com.malpro.model.configuration.ApiConfiguration;
+import com.malpro.model.dto.ProductFeatureDto;
+import com.malpro.model.dto.ProductFeaturesCodeDto;
+import com.malpro.model.dto.ProductFeaturesTextDto;
+import com.malpro.model.dto.ReferenceFeatureSystem;
+import com.malpro.model.model.EtimClass;
+import com.malpro.model.service.IConvertorService;
+import com.malpro.model.service.IEtimService;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by fahian on 20.05.22.
@@ -30,6 +33,7 @@ import java.util.Set;
 @RestController
 @RequestMapping(ApiConfiguration.API_URI_V1 + ConvertorController.URL)
 @RequiredArgsConstructor
+@Slf4j
 public class ConvertorController {
     public static final String URL = "/convert";
 
@@ -38,6 +42,7 @@ public class ConvertorController {
 
     @PostMapping(path = "/to-code", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ProductFeaturesCodeDto> toCode(@RequestBody ProductFeaturesTextDto productFeaturesTextDto) {
+        log.info("Converting text to code: etim class {}, reference system {}", productFeaturesTextDto.getEtimClass(), productFeaturesTextDto.getReferenceFeatureSystem());
 
         final Optional<EtimClass> etimClass = iEtimService.findEtimClassByCode(productFeaturesTextDto.getEtimClass());
 
